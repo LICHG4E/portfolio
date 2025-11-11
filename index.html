@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jesser Hamdi is a Flutter-first software engineering student delivering polished mobile, IoT, and AI experiences.">
+    <meta name="description"
+        content="Jesser Hamdi is a Flutter-first software engineering student delivering polished mobile, IoT, and AI experiences.">
     <meta name="author" content="Jesser Hamdi">
     <meta name="keywords" content="Flutter, Mobile Developer, IoT, AI, Jesser Hamdi, SalahMate, PlantCare">
     <title>Jesser Hamdi · Flutter & IoT Engineer</title>
@@ -11,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -59,6 +63,7 @@
             line-height: 1.6;
             scroll-behavior: smooth;
             transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
         }
 
         a {
@@ -123,9 +128,20 @@
         }
 
         @keyframes ambientFloat {
-            0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.28; }
-            50% { transform: translate3d(8%, -6%, 0) scale(1.12); opacity: 0.46; }
-            100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.28; }
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.28;
+            }
+
+            50% {
+                transform: translate3d(8%, -6%, 0) scale(1.12);
+                opacity: 0.46;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+                opacity: 0.28;
+            }
         }
 
         /* Navigation */
@@ -228,6 +244,17 @@
             flex-direction: column;
             gap: 0.28rem;
             cursor: pointer;
+            padding: 0.6rem;
+            border-radius: 8px;
+            background: var(--bg-alt);
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .mobile-trigger:hover {
+            background: color-mix(in srgb, var(--bg-alt) 90%, var(--primary) 5%);
+            transform: scale(1.05);
         }
 
         .mobile-trigger span {
@@ -304,15 +331,39 @@
         }
 
         @keyframes heroGlow {
-            0%, 100% { opacity: 0.25; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(1.03); }
+
+            0%,
+            100% {
+                opacity: 0.25;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(1.03);
+            }
         }
 
         @keyframes heroSweep {
-            0%, 100% { opacity: 0; transform: translateX(-18%); }
-            40% { opacity: 0.22; }
-            50% { opacity: 0.3; transform: translateX(12%); }
-            70% { opacity: 0.18; }
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: translateX(-18%);
+            }
+
+            40% {
+                opacity: 0.22;
+            }
+
+            50% {
+                opacity: 0.3;
+                transform: translateX(12%);
+            }
+
+            70% {
+                opacity: 0.18;
+            }
         }
 
         .hero-badge {
@@ -340,9 +391,19 @@
         }
 
         @keyframes badgeShine {
-            0%, 55% { transform: translateX(-110%); }
-            65% { transform: translateX(110%); }
-            100% { transform: translateX(110%); }
+
+            0%,
+            55% {
+                transform: translateX(-110%);
+            }
+
+            65% {
+                transform: translateX(110%);
+            }
+
+            100% {
+                transform: translateX(110%);
+            }
         }
 
         .hero-content {
@@ -369,8 +430,16 @@
         }
 
         @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .hero p {
@@ -470,17 +539,44 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        .hero-tags .chip:nth-child(1) { animation-delay: 0s; }
-        .hero-tags .chip:nth-child(2) { animation-delay: 0.5s; }
-        .hero-tags .chip:nth-child(3) { animation-delay: 1s; }
-        .hero-tags .chip:nth-child(4) { animation-delay: 1.5s; }
-        .hero-tags .chip:nth-child(5) { animation-delay: 2s; }
-        .hero-tags .chip:nth-child(6) { animation-delay: 2.5s; }
-        .hero-tags .chip:nth-child(7) { animation-delay: 3s; }
+        .hero-tags .chip:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .hero-tags .chip:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .hero-tags .chip:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .hero-tags .chip:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .hero-tags .chip:nth-child(5) {
+            animation-delay: 2s;
+        }
+
+        .hero-tags .chip:nth-child(6) {
+            animation-delay: 2.5s;
+        }
+
+        .hero-tags .chip:nth-child(7) {
+            animation-delay: 3s;
+        }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
         }
 
         /* Sections */
@@ -834,8 +930,17 @@
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.05); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
         }
 
         .contact-card small {
@@ -889,7 +994,7 @@
         /* Responsive */
         @media (max-width: 960px) {
             .nav-links {
-                position: absolute;
+                position: fixed;
                 top: 72px;
                 right: 1.5rem;
                 left: 1.5rem;
@@ -902,6 +1007,7 @@
                 gap: 0.85rem;
                 min-width: unset;
                 display: none;
+                z-index: 101;
             }
 
             .nav-links a {
@@ -940,6 +1046,10 @@
         @media (max-width: 620px) {
             .nav-container {
                 padding: 1rem 1.4rem;
+            }
+
+            .nav-links {
+                top: 4rem;
             }
 
             section {
@@ -1004,7 +1114,19 @@
 
         @media (max-width: 460px) {
             .nav-container {
-                padding: 0.9rem 1.1rem;
+                padding-top: 0.6rem;
+                padding-right: 3rem;
+                padding-bottom: 0.6rem;
+                padding-left: 0.5rem;
+                gap: 1rem;
+                max-width: 100%;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                top: 3.5rem;
+                right: 1rem;
+                left: 1rem;
             }
 
             .brand-mark {
@@ -1012,8 +1134,12 @@
                 height: 38px;
             }
 
-            .brand span {
-                font-size: 0.92rem;
+            .brand {
+                gap: 0.85rem;
+            }
+
+            .mobile-trigger {
+                z-index: 110;
             }
 
             .hero {
@@ -1069,9 +1195,26 @@
             .section-header h2 {
                 font-size: 1.75rem;
             }
+
+            .nav-links {
+                top: 3rem;
+            }
+
+            .brand span {
+                font-size: 0.88rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .brand-mark {
+                width: 32px;
+                height: 32px;
+            }
         }
     </style>
 </head>
+
 <body data-theme="light">
     <nav>
         <div class="nav-container">
@@ -1112,10 +1255,14 @@
                     <span>Open to 2025 PFE internship opportunities</span>
                 </div>
                 <h1 id="heroTitle"><span id="typed-text"></span><span id="cursor">|</span></h1>
-                <p>I am Jesser Hamdi, a software engineering student at Université de Carthage. My focus is mobile-first experiences—shipping SalahMate, PlantCare, and collaborative experiments that blend UX, realtime data, and automation.</p>
+                <p>I am Jesser Hamdi, a software engineering student at Université de Carthage. My focus is mobile-first
+                    experiences—shipping SalahMate, PlantCare, and collaborative experiments that blend UX, realtime
+                    data, and automation.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="cv.pdf" download>Download CV</a>
-                    <a class="btn btn-neutral" href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en" target="_blank" rel="noopener">SalahMate on Play Store</a>
+                    <a class="btn btn-neutral"
+                        href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+                        target="_blank" rel="noopener">SalahMate on Play Store</a>
                     <a class="btn btn-outline" href="mailto:jasser.hamdi@fsb.ucar.tn">Let’s collaborate</a>
                 </div>
                 <div class="hero-tags">
@@ -1134,25 +1281,34 @@
             <div class="section-frame">
                 <div class="section-header reveal">
                     <h2>About</h2>
-                    <p>Entrepreneurial developer blending mobile, backend, and connected hardware to solve practical problems for communities and teams.</p>
+                    <p>Entrepreneurial developer blending mobile, backend, and connected hardware to solve practical
+                        problems for communities and teams.</p>
                 </div>
                 <div class="about-wrap">
                     <article class="card reveal">
                         <h3>A product-minded Flutter engineer</h3>
-                        <p>I build end-to-end mobile solutions—architecture, UI, deployment, and automation. My projects combine delightful interfaces, reliable data layers, and clear feedback loops.</p>
+                        <p>I build end-to-end mobile solutions—architecture, UI, deployment, and automation. My projects
+                            combine delightful interfaces, reliable data layers, and clear feedback loops.</p>
                         <ul class="stat-list">
-                            <li class="stat"><span>• Published Flutter apps on Google Play</span><strong class="counter" data-target="2">0</strong></li>
-                            <li class="stat"><span>• Multilingual experiences shipped</span><strong class="counter" data-target="3">0</strong></li>
-                            <li class="stat"><span>• Engineering degree in progress (FSB, Université de Carthage)</span><strong class="counter" data-target="2026">2023</strong></li>
+                            <li class="stat"><span>• Published Flutter apps on Google Play</span><strong class="counter"
+                                    data-target="2">0</strong></li>
+                            <li class="stat"><span>• Multilingual experiences shipped</span><strong class="counter"
+                                    data-target="3">0</strong></li>
+                            <li class="stat"><span>• Engineering degree in progress (FSB, Université de
+                                    Carthage)</span><strong class="counter" data-target="2026">2023</strong></li>
                         </ul>
                     </article>
                     <article class="card reveal">
                         <h3>What I focus on</h3>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Mobile products that balance UX polish with performance, including custom theming, accessibility, and offline-first patterns.</span></li>
-                            <li><span>▹</span><span>IoT dashboards that surface sensor data and alerts using Firebase, MQTT, and BeagleBone hardware.</span></li>
-                            <li><span>▹</span><span>Applied AI features, such as TensorFlow Lite models for computer vision and smart media pipelines for Quran audio in SalahMate.</span></li>
-                            <li><span>▹</span><span>Analytics-informed iteration with Power BI dashboards, event tracking, and automation to capture user impact.</span></li>
+                            <li><span>▹</span><span>Mobile products that balance UX polish with performance, including
+                                    custom theming, accessibility, and offline-first patterns.</span></li>
+                            <li><span>▹</span><span>IoT dashboards that surface sensor data and alerts using Firebase,
+                                    MQTT, and BeagleBone hardware.</span></li>
+                            <li><span>▹</span><span>Applied AI features, such as TensorFlow Lite models for computer
+                                    vision and smart media pipelines for Quran audio in SalahMate.</span></li>
+                            <li><span>▹</span><span>Analytics-informed iteration with Power BI dashboards, event
+                                    tracking, and automation to capture user impact.</span></li>
                         </ul>
                     </article>
                 </div>
@@ -1163,26 +1319,33 @@
             <div class="section-frame">
                 <div class="section-header reveal">
                     <h2>Signature Projects</h2>
-                    <p>Highlighted releases and open-source work from my GitHub (<a href="https://github.com/LICHG4E" target="_blank" rel="noopener">LICHG4E</a>) and Google Play developer accounts.</p>
+                    <p>Highlighted releases and open-source work from my GitHub (<a href="https://github.com/LICHG4E"
+                            target="_blank" rel="noopener">LICHG4E</a>) and Google Play developer accounts.</p>
                 </div>
                 <div class="project-grid">
                     <article class="project-card reveal">
                         <div class="project-top">
                             <span class="project-label">Mobile · Production</span>
                             <h3>SalahMate — comprehensive Islamic companion app.</h3>
-                            <p>Delivers accurate prayer times, Quran recitation with offline caching, adhkar, Qibla compass, Hijri calendar, and adaptive light/dark/black themes with battery-friendly background services.</p>
+                            <p>Delivers accurate prayer times, Quran recitation with offline caching, adhkar, Qibla
+                                compass, Hijri calendar, and adaptive light/dark/black themes with battery-friendly
+                                background services.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Multi-language experience (Arabic, English, French) with responsive typography for phones and tablets.</span></li>
-                            <li><span>▹</span><span>Custom notification engine powering prayer reminders, fasting trackers, and smart Quran playback queues.</span></li>
+                            <li><span>▹</span><span>Multi-language experience (Arabic, English, French) with responsive
+                                    typography for phones and tablets.</span></li>
+                            <li><span>▹</span><span>Custom notification engine powering prayer reminders, fasting
+                                    trackers, and smart Quran playback queues.</span></li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
                             <span class="chip">App Store Ops</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en" target="_blank" rel="noopener">Play Store →</a>
-                            <a href="https://github.com/LICHG4E/salahMate_quran_audio" target="_blank" rel="noopener">Audio pipeline repo →</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.GroveReaper.salahmate.salahmate&hl=en"
+                                target="_blank" rel="noopener">Play Store →</a>
+                            <a href="https://github.com/LICHG4E/salahMate_quran_audio" target="_blank"
+                                rel="noopener">Audio pipeline repo →</a>
                         </div>
                     </article>
 
@@ -1190,11 +1353,14 @@
                         <div class="project-top">
                             <span class="project-label">IoT · AI</span>
                             <h3>PlantCare — smart greenhouse telemetry &amp; vision.</h3>
-                            <p>End-to-end platform that pairs a BeagleBone-based IoT gateway with a Flutter app for live greenhouse monitoring, remote controls, and TensorFlow Lite disease detection.</p>
+                            <p>End-to-end platform that pairs a BeagleBone-based IoT gateway with a Flutter app for live
+                                greenhouse monitoring, remote controls, and TensorFlow Lite disease detection.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Realtime dashboards for humidity, soil moisture, and light with configurable alert thresholds.</span></li>
-                            <li><span>▹</span><span>Image capture pipeline that flags plant health issues directly from growers’ phones.</span></li>
+                            <li><span>▹</span><span>Realtime dashboards for humidity, soil moisture, and light with
+                                    configurable alert thresholds.</span></li>
+                            <li><span>▹</span><span>Image capture pipeline that flags plant health issues directly from
+                                    growers’ phones.</span></li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
@@ -1203,7 +1369,8 @@
                             <span class="chip">BeagleBone</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LICHG4E/iot_v3" target="_blank" rel="noopener">GitHub case study →</a>
+                            <a href="https://github.com/LICHG4E/iot_v3" target="_blank" rel="noopener">GitHub case study
+                                →</a>
                         </div>
                     </article>
 
@@ -1211,11 +1378,14 @@
                         <div class="project-top">
                             <span class="project-label">Mobile · Gamified Learning</span>
                             <h3>Flag Frenzy — geography gamification with Supabase.</h3>
-                            <p>Mobile game with challenge ladders, daily streak mechanics, in-game currency, and federated login to keep learners engaged.</p>
+                            <p>Mobile game with challenge ladders, daily streak mechanics, in-game currency, and
+                                federated login to keep learners engaged.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Progression engine that adapts difficulty and rewards to player streaks.</span></li>
-                            <li><span>▹</span><span>Cross-device sync using Supabase Auth and row-level security.</span></li>
+                            <li><span>▹</span><span>Progression engine that adapts difficulty and rewards to player
+                                    streaks.</span></li>
+                            <li><span>▹</span><span>Cross-device sync using Supabase Auth and row-level security.</span>
+                            </li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
@@ -1224,7 +1394,8 @@
                             <span class="chip">RevenueOps</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LICHG4E/flag_frenzy_general" target="_blank" rel="noopener">GitHub →</a>
+                            <a href="https://github.com/LICHG4E/flag_frenzy_general" target="_blank"
+                                rel="noopener">GitHub →</a>
                         </div>
                     </article>
                 </div>
@@ -1235,7 +1406,8 @@
                         <div class="project-top">
                             <span class="project-label">Collaboration · Java</span>
                             <h3>Netflixy — cinematic discovery experience.</h3>
-                            <p>Desktop application in Java using Oracle database for storing videos, actors, etc., with bespoke UI components.</p>
+                            <p>Desktop application in Java using Oracle database for storing videos, actors, etc., with
+                                bespoke UI components.</p>
                         </div>
                         <div class="project-meta">
                             <span class="chip">Java</span>
@@ -1243,7 +1415,8 @@
                             <span class="chip">Custom UI</span>
                         </div>
                         <div class="project-links">
-                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Netflixy%20case%20study">Request demo deck →</a>
+                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Netflixy%20case%20study">Request demo deck
+                                →</a>
                         </div>
                     </article>
 
@@ -1251,11 +1424,14 @@
                         <div class="project-top">
                             <span class="project-label">Mobile · Streaming</span>
                             <h3>jwatch_v2 — Flutter streaming hub.</h3>
-                            <p>A personal Flutter app that aggregates anime, TV, and film sources into a single catalog with custom playback controls and progress syncing.</p>
+                            <p>A personal Flutter app that aggregates anime, TV, and film sources into a single catalog
+                                with custom playback controls and progress syncing.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Unified search across multiple streaming APIs with smart fallback when providers throttle.</span></li>
-                            <li><span>▹</span><span>In-app player overlays for subtitles, episode queues, and casting hooks.</span></li>
+                            <li><span>▹</span><span>Unified search across multiple streaming APIs with smart fallback
+                                    when providers throttle.</span></li>
+                            <li><span>▹</span><span>In-app player overlays for subtitles, episode queues, and casting
+                                    hooks.</span></li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
@@ -1271,7 +1447,8 @@
                         <div class="project-top">
                             <span class="project-label">Data Ops</span>
                             <h3>Sagemcom BI pipelines</h3>
-                            <p>ETL workflows and Power BI dashboards created during my 2024 internship to automate industrial reporting and forecasting.</p>
+                            <p>ETL workflows and Power BI dashboards created during my 2024 internship to automate
+                                industrial reporting and forecasting.</p>
                         </div>
                         <div class="project-meta">
                             <span class="chip">Python</span>
@@ -1287,11 +1464,14 @@
                         <div class="project-top">
                             <span class="project-label">Backend · Spring Boot</span>
                             <h3>RealEstateAgency_back — property APIs.</h3>
-                            <p>Spring Boot service that manages property listings, appointments, and agent workflows with secure authentication and documentation.</p>
+                            <p>Spring Boot service that manages property listings, appointments, and agent workflows
+                                with secure authentication and documentation.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Modular architecture with layered services, DTO validation, and Swagger docs for quick onboarding.</span></li>
-                            <li><span>▹</span><span>Role-based security and JWT refreshing to keep brokers and admins in their lanes.</span></li>
+                            <li><span>▹</span><span>Modular architecture with layered services, DTO validation, and
+                                    Swagger docs for quick onboarding.</span></li>
+                            <li><span>▹</span><span>Role-based security and JWT refreshing to keep brokers and admins in
+                                    their lanes.</span></li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Spring Boot</span>
@@ -1299,7 +1479,8 @@
                             <span class="chip">JWT</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LICHG4E/RealEstateAgency_back" target="_blank" rel="noopener">GitHub →</a>
+                            <a href="https://github.com/LICHG4E/RealEstateAgency_back" target="_blank"
+                                rel="noopener">GitHub →</a>
                         </div>
                     </article>
 
@@ -1307,11 +1488,14 @@
                         <div class="project-top">
                             <span class="project-label">Game · Multiplayer</span>
                             <h3>Unity 4-player game "Dots Fighting in Space"</h3>
-                            <p>Unity game featuring 4-player multiplayer combat in space, with a Java-based server handling matchmaking and game state.</p>
+                            <p>Unity game featuring 4-player multiplayer combat in space, with a Java-based server
+                                handling matchmaking and game state.</p>
                         </div>
                         <ul class="project-list">
-                            <li><span>▹</span><span>Space-themed battles with dots as characters in zero-gravity combat.</span></li>
-                            <li><span>▹</span><span>Java server manages multiplayer sessions and ensures synchronized gameplay.</span></li>
+                            <li><span>▹</span><span>Space-themed battles with dots as characters in zero-gravity
+                                    combat.</span></li>
+                            <li><span>▹</span><span>Java server manages multiplayer sessions and ensures synchronized
+                                    gameplay.</span></li>
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Unity</span>
@@ -1319,7 +1503,8 @@
                             <span class="chip">Netcode</span>
                         </div>
                         <div class="project-links">
-                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Unity%20multiplayer%20prototype">Request playtest invite →</a>
+                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Unity%20multiplayer%20prototype">Request
+                                playtest invite →</a>
                         </div>
                     </article>
                 </div>
@@ -1344,9 +1529,12 @@
                                 <span>July 2024</span>
                             </header>
                             <ul>
-                                <li>Designed ETL pipelines to consolidate production data into actionable aggregates inside SQL Server.</li>
-                                <li>Automated Power BI dashboards fed by Python (Pandas) scripts to surface KPIs for operations teams.</li>
-                                <li>Documented workflows and trained stakeholders, reducing manual reporting time each week.</li>
+                                <li>Designed ETL pipelines to consolidate production data into actionable aggregates
+                                    inside SQL Server.</li>
+                                <li>Automated Power BI dashboards fed by Python (Pandas) scripts to surface KPIs for
+                                    operations teams.</li>
+                                <li>Documented workflows and trained stakeholders, reducing manual reporting time each
+                                    week.</li>
                             </ul>
                         </article>
                     </div>
@@ -1362,9 +1550,12 @@
                                 <span>2022 – Present</span>
                             </header>
                             <ul>
-                                <li>Launched and maintained multiple mobile apps with Google Play releases and CI/CD automation.</li>
-                                <li>Built dashboards and alerting workflows that surface IoT sensor data to growers and testers.</li>
-                                <li>Embedded ML models, monetization, analytics, and growth tactics to support real user needs.</li>
+                                <li>Launched and maintained multiple mobile apps with Google Play releases and CI/CD
+                                    automation.</li>
+                                <li>Built dashboards and alerting workflows that surface IoT sensor data to growers and
+                                    testers.</li>
+                                <li>Embedded ML models, monetization, analytics, and growth tactics to support real user
+                                    needs.</li>
                             </ul>
                         </article>
                     </div>
@@ -1376,14 +1567,16 @@
             <div class="section-frame">
                 <div class="section-header reveal">
                     <h2>Skills &amp; Tech Stack</h2>
-                    <p>Focused on tools that I rely on weekly when architecting, shipping, and iterating on products.</p>
+                    <p>Focused on tools that I rely on weekly when architecting, shipping, and iterating on products.
+                    </p>
                 </div>
                 <div class="skill-grid">
                     <article class="skill-card reveal">
                         <h3>Product-grade Mobile</h3>
                         <ul class="skill-list">
                             <li><span>▹</span><span>Flutter · Dart · Provider · Flutter animations</span></li>
-                            <li><span>▹</span><span>Android Studio, Firebase App Distribution, Play Console ops</span></li>
+                            <li><span>▹</span><span>Android Studio, Firebase App Distribution, Play Console ops</span>
+                            </li>
                             <li><span>▹</span><span>Accessibility, responsive layouts, advanced theming</span></li>
                         </ul>
                     </article>
@@ -1411,7 +1604,8 @@
                         <ul class="skill-list">
                             <li><span>▹</span><span>Git &amp; GitHub Actions, issue triage, code reviews</span></li>
                             <li><span>▹</span><span>Figma prototypes, design tokens, UX writing</span></li>
-                            <li><span>▹</span><span>Documentation (Markdown, LaTeX), English &amp; French communication</span></li>
+                            <li><span>▹</span><span>Documentation (Markdown, LaTeX), English &amp; French
+                                    communication</span></li>
                         </ul>
                     </article>
                 </div>
@@ -1428,7 +1622,8 @@
                     <strong>Engineering Degree in Software Engineering</strong>
                     <span>Faculté des Sciences de Bizerte, Université de Carthage</span>
                     <span class="chip">Expected 2026</span>
-                    <p>Coursework across distributed systems, embedded programming, and advanced algorithms supporting my applied project work.</p>
+                    <p>Coursework across distributed systems, embedded programming, and advanced algorithms supporting
+                        my applied project work.</p>
                 </article>
             </div>
         </section>
@@ -1437,7 +1632,8 @@
             <div class="section-frame">
                 <div class="section-header reveal">
                     <h2>Let’s Collaborate</h2>
-                    <p>Share your idea, internship brief, or a complex integration challenge—happy to explore how I can help.</p>
+                    <p>Share your idea, internship brief, or a complex integration challenge—happy to explore how I can
+                        help.</p>
                 </div>
                 <div class="contact-grid">
                     <article class="contact-card reveal">
@@ -1447,7 +1643,8 @@
                     </article>
                     <article class="contact-card reveal">
                         <small>LinkedIn</small>
-                        <a href="https://linkedin.com/in/jesser-hamdi-5b071a238" target="_blank" rel="noopener">linkedin.com/in/jesser-hamdi-5b071a238</a>
+                        <a href="https://linkedin.com/in/jesser-hamdi-5b071a238" target="_blank"
+                            rel="noopener">linkedin.com/in/jesser-hamdi-5b071a238</a>
                         <p>Let’s connect for professional updates and community collaborations.</p>
                     </article>
                     <article class="contact-card reveal">
@@ -1610,4 +1807,5 @@
         year.textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>
