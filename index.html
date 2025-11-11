@@ -310,16 +310,12 @@
             position: relative;
         }
 
-        .hero h1::after {
-            content: '|';
-            position: absolute;
-            left: 100%;
-            top: 0;
-            color: var(--primary);
+        #cursor {
             animation: blink 1s infinite;
+            color: var(--primary);
         }
 
-        .hero h1.typing-done::after {
+        .typing-done #cursor {
             animation: none;
             opacity: 0;
         }
@@ -949,7 +945,7 @@
                 <div class="hero-badge">
                     <span>Open to 2025 PFE internship opportunities</span>
                 </div>
-                <h1 id="heroTitle" data-text="Building polished Flutter apps with tight visuals and dependable data flows."></h1>
+                <h1 id="heroTitle"><span id="typed-text"></span><span id="cursor">|</span></h1>
                 <p>I am Jesser Hamdi, a software engineering student at Université de Carthage. My focus is mobile-first experiences—shipping SalahMate, PlantCare, and collaborative experiments that blend UX, realtime data, and automation.</p>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="cv.pdf" download>Download CV</a>
@@ -1346,19 +1342,21 @@
         // Mouse light follower
         const mouseLight = document.getElementById('mouse-light');
         document.addEventListener('mousemove', (e) => {
-            mouseLight.style.left = (e.clientX - 150) + 'px';
-            mouseLight.style.top = (e.clientY - 150) + 'px';
+            mouseLight.style.left = (e.clientX - 200) + 'px';
+            mouseLight.style.top = (e.clientY - 200) + 'px';
         });
 
         // Typing animation for hero title
         const heroTitle = document.getElementById('heroTitle');
-        const fullText = heroTitle.dataset.text;
+        const typedText = document.getElementById('typed-text');
+        const cursor = document.getElementById('cursor');
+        const fullText = "Building polished Flutter apps with tight visuals and dependable data flows.";
         let index = 0;
         const typeSpeed = 50; // ms per character
 
         function typeWriter() {
             if (index < fullText.length) {
-                heroTitle.textContent += fullText.charAt(index);
+                typedText.textContent += fullText.charAt(index);
                 index++;
                 setTimeout(typeWriter, typeSpeed);
             } else {
