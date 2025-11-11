@@ -77,7 +77,55 @@
 
         main {
             position: relative;
-            z-index: 1;
+            z-index: 2;
+        }
+
+        /* Ambient background */
+        .ambient {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+            mix-blend-mode: screen;
+        }
+
+        .ambient .light {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            background: radial-gradient(circle, color-mix(in srgb, var(--primary) 22%, transparent 78%) 0%, transparent 70%);
+            opacity: 0.32;
+            filter: blur(8px);
+            animation: ambientFloat 16s ease-in-out infinite;
+        }
+
+        .ambient .light:nth-child(1) {
+            top: -12%;
+            left: 15%;
+            animation-duration: 18s;
+        }
+
+        .ambient .light:nth-child(2) {
+            bottom: -14%;
+            right: 12%;
+            animation-duration: 20s;
+            animation-delay: 2s;
+        }
+
+        .ambient .light:nth-child(3) {
+            top: 32%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-duration: 22s;
+            animation-delay: 4s;
+        }
+
+        @keyframes ambientFloat {
+            0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.28; }
+            50% { transform: translate3d(8%, -6%, 0) scale(1.12); opacity: 0.46; }
+            100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.28; }
         }
 
         /* Navigation */
@@ -352,6 +400,7 @@
             filter: blur(28px);
             background: color-mix(in srgb, var(--primary) 22%, transparent 78%);
             opacity: 0.25;
+            pointer-events: none;
         }
 
         .btn {
@@ -426,6 +475,8 @@
         .hero-tags .chip:nth-child(3) { animation-delay: 1s; }
         .hero-tags .chip:nth-child(4) { animation-delay: 1.5s; }
         .hero-tags .chip:nth-child(5) { animation-delay: 2s; }
+        .hero-tags .chip:nth-child(6) { animation-delay: 2.5s; }
+        .hero-tags .chip:nth-child(7) { animation-delay: 3s; }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
@@ -820,10 +871,10 @@
             background: radial-gradient(circle, color-mix(in srgb, var(--primary) 20%, transparent 80%) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
-            z-index: 0;
+            z-index: 1;
             opacity: 0.4;
             transition: opacity 0.3s ease;
-            mix-blend-mode: lighten;
+            mix-blend-mode: screen;
         }
 
         body:hover #mouse-light {
@@ -841,15 +892,20 @@
                 position: absolute;
                 top: 72px;
                 right: 1.5rem;
-                background: color-mix(in srgb, var(--bg) 88%, transparent 12%);
+                left: 1.5rem;
+                background: color-mix(in srgb, var(--bg) 90%, transparent 10%);
                 border: 1px solid var(--card-border);
                 border-radius: var(--radius-md);
                 box-shadow: var(--shadow-md);
-                padding: 1.5rem;
+                padding: 1.4rem;
                 flex-direction: column;
-                gap: 1rem;
-                min-width: 220px;
+                gap: 0.85rem;
+                min-width: unset;
                 display: none;
+            }
+
+            .nav-links a {
+                padding: 0.5rem 0.2rem;
             }
 
             .nav-links.open {
@@ -865,11 +921,13 @@
             }
 
             .hero-inner {
-                padding: 2rem;
+                padding: 2.2rem;
+                text-align: left;
             }
 
             .hero-actions {
                 gap: 0.75rem;
+                justify-content: flex-start;
             }
 
             .project-card,
@@ -884,12 +942,24 @@
                 padding: 1rem 1.4rem;
             }
 
+            section {
+                padding: 3.2rem 1.4rem;
+            }
+
             .hero {
-                padding-top: 160px;
+                padding: 150px 1.3rem 110px;
+            }
+
+            .hero-inner {
+                padding: 1.9rem;
             }
 
             .hero h1 {
                 font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
             }
 
             .hero-actions {
@@ -901,12 +971,103 @@
                 width: 100%;
             }
 
+            .section-header {
+                margin-bottom: 2.2rem;
+                text-align: left;
+            }
+
+            .section-header h2 {
+                font-size: 1.9rem;
+            }
+
+            .project-card,
+            .skill-card,
+            .timeline-card,
+            .card,
+            .contact-card {
+                padding: 1.45rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .timeline::before {
                 left: 12px;
             }
 
             .timeline-item {
                 grid-template-columns: 30px 1fr;
+            }
+        }
+
+        @media (max-width: 460px) {
+            .nav-container {
+                padding: 0.9rem 1.1rem;
+            }
+
+            .brand-mark {
+                width: 38px;
+                height: 38px;
+            }
+
+            .brand span {
+                font-size: 0.92rem;
+            }
+
+            .hero {
+                padding: 140px 1.1rem 96px;
+            }
+
+            .hero-inner {
+                padding: 1.7rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tags {
+                gap: 0.45rem;
+            }
+
+            .chip {
+                font-size: 0.8rem;
+            }
+
+            .project-card,
+            .skill-card,
+            .timeline-card,
+            .card,
+            .contact-card {
+                padding: 1.35rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+
+            .hero-actions {
+                gap: 0.55rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .project-card,
+            .skill-card,
+            .timeline-card,
+            .card,
+            .contact-card {
+                padding: 1.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
             }
         }
     </style>
@@ -938,6 +1099,11 @@
     </nav>
 
     <div id="mouse-light"></div>
+    <div class="ambient" aria-hidden="true">
+        <span class="light"></span>
+        <span class="light"></span>
+        <span class="light"></span>
+    </div>
 
     <main>
         <section class="hero" id="top">
@@ -958,6 +1124,8 @@
                     <span class="chip">TensorFlow Lite</span>
                     <span class="chip">IoT &amp; BeagleBone</span>
                     <span class="chip">CI/CD &amp; Automation</span>
+                    <span class="chip">Spring Boot</span>
+                    <span class="chip">Unity Multiplayer</span>
                 </div>
             </div>
         </section>
@@ -1010,8 +1178,6 @@
                         </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
-                            <span class="chip">Firebase</span>
-                            <span class="chip">Riverpod</span>
                             <span class="chip">App Store Ops</span>
                         </div>
                         <div class="project-links">
@@ -1067,14 +1233,14 @@
                 <div class="project-grid">
                     <article class="project-card reveal">
                         <div class="project-top">
-                            <span class="project-label">Collaboration · Web</span>
+                            <span class="project-label">Collaboration · Java</span>
                             <h3>Netflixy — cinematic discovery experience.</h3>
-                            <p>Team-built streaming catalogue web app with curated collections, server-driven filters, and an accessible design system inspired by Netflix.</p>
+                            <p>Desktop application in Java using Oracle database for storing videos, actors, etc., with bespoke UI components.</p>
                         </div>
                         <div class="project-meta">
-                            <span class="chip">React</span>
-                            <span class="chip">TMDB API</span>
-                            <span class="chip">Tailwind CSS</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">Oracle</span>
+                            <span class="chip">Custom UI</span>
                         </div>
                         <div class="project-links">
                             <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Netflixy%20case%20study">Request demo deck →</a>
@@ -1083,17 +1249,21 @@
 
                     <article class="project-card reveal">
                         <div class="project-top">
-                            <span class="project-label">Team · Productivity</span>
-                            <h3>NotesApp — shared notes with reminders.</h3>
-                            <p>Collaborative Flutter app with offline storage and scheduled reminders, born from a university hack sprint and maintained with peers.</p>
+                            <span class="project-label">Mobile · Streaming</span>
+                            <h3>jwatch_v2 — Flutter streaming hub.</h3>
+                            <p>A personal Flutter app that aggregates anime, TV, and film sources into a single catalog with custom playback controls and progress syncing.</p>
                         </div>
+                        <ul class="project-list">
+                            <li><span>▹</span><span>Unified search across multiple streaming APIs with smart fallback when providers throttle.</span></li>
+                            <li><span>▹</span><span>In-app player overlays for subtitles, episode queues, and casting hooks.</span></li>
+                        </ul>
                         <div class="project-meta">
                             <span class="chip">Flutter</span>
-                            <span class="chip">Hive</span>
-                            <span class="chip">Team Delivery</span>
+                            <span class="chip">Dart</span>
+                            <span class="chip">Streaming APIs</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/LICHG4E/notesAPP" target="_blank" rel="noopener">GitHub snapshot →</a>
+                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=jwatch_v2%20demo">Request test build →</a>
                         </div>
                     </article>
 
@@ -1110,6 +1280,46 @@
                         </div>
                         <div class="project-links">
                             <a href="#experience">Experience details →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-top">
+                            <span class="project-label">Backend · Spring Boot</span>
+                            <h3>RealEstateAgency_back — property APIs.</h3>
+                            <p>Spring Boot service that manages property listings, appointments, and agent workflows with secure authentication and documentation.</p>
+                        </div>
+                        <ul class="project-list">
+                            <li><span>▹</span><span>Modular architecture with layered services, DTO validation, and Swagger docs for quick onboarding.</span></li>
+                            <li><span>▹</span><span>Role-based security and JWT refreshing to keep brokers and admins in their lanes.</span></li>
+                        </ul>
+                        <div class="project-meta">
+                            <span class="chip">Spring Boot</span>
+                            <span class="chip">REST</span>
+                            <span class="chip">JWT</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/LICHG4E/RealEstateAgency_back" target="_blank" rel="noopener">GitHub →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal">
+                        <div class="project-top">
+                            <span class="project-label">Game · Multiplayer</span>
+                            <h3>Unity 4-player game "Dots Fighting in Space"</h3>
+                            <p>Unity game featuring 4-player multiplayer combat in space, with a Java-based server handling matchmaking and game state.</p>
+                        </div>
+                        <ul class="project-list">
+                            <li><span>▹</span><span>Space-themed battles with dots as characters in zero-gravity combat.</span></li>
+                            <li><span>▹</span><span>Java server manages multiplayer sessions and ensures synchronized gameplay.</span></li>
+                        </ul>
+                        <div class="project-meta">
+                            <span class="chip">Unity</span>
+                            <span class="chip">Java</span>
+                            <span class="chip">Netcode</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="mailto:jasser.hamdi@fsb.ucar.tn?subject=Unity%20multiplayer%20prototype">Request playtest invite →</a>
                         </div>
                     </article>
                 </div>
@@ -1172,7 +1382,7 @@
                     <article class="skill-card reveal">
                         <h3>Product-grade Mobile</h3>
                         <ul class="skill-list">
-                            <li><span>▹</span><span>Flutter · Dart · Riverpod · Bloc · Flutter animations</span></li>
+                            <li><span>▹</span><span>Flutter · Dart · Provider · Flutter animations</span></li>
                             <li><span>▹</span><span>Android Studio, Firebase App Distribution, Play Console ops</span></li>
                             <li><span>▹</span><span>Accessibility, responsive layouts, advanced theming</span></li>
                         </ul>
@@ -1183,7 +1393,7 @@
                         <ul class="skill-list">
                             <li><span>▹</span><span>Firebase (Auth, Firestore, RTDB, Cloud Messaging)</span></li>
                             <li><span>▹</span><span>MQTT, REST backends, Spring Boot, Express.js</span></li>
-                            <li><span>▹</span><span>BeagleBone, Arduino, sensor calibration &amp; OTA updates</span></li>
+                            <li><span>▹</span><span>BeagleBone</span></li>
                         </ul>
                     </article>
 
